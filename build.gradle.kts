@@ -1,4 +1,4 @@
-group = "ru.itmo.se.prog.lab7"
+group = "ru.itmo.se.prog.lab8"
 version = "1.0-SNAPSHOT"
 
 allprojects {

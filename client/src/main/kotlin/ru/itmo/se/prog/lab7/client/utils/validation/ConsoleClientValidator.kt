@@ -15,7 +15,7 @@ import ru.itmo.se.prog.lab7.common.data.types.StatusType
 import ru.itmo.se.prog.lab7.common.exceptions.WrongPasswordException
 import java.util.*
 
-class ClientValidator: KoinComponent {
+class ConsoleClientValidator: KoinComponent {
     private val commandManager: CommandManager by inject()
     private val message: Messages by inject()
     private val write: PrinterManager by inject()

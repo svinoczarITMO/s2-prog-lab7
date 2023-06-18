@@ -29,7 +29,6 @@ class Login: Command(ArgType.TOKEN, StatusType.USER, LocationType.SERVER), KoinC
         var result = ""
 
         val login = signManager.logLogin(hash.encryptLogin(data.user.login)) as String
-        println("login: $login")
         if (login == message.getMessage("invalid_login1")) {
             data.answerStr = login
             return data
@@ -41,7 +40,6 @@ class Login: Command(ArgType.TOKEN, StatusType.USER, LocationType.SERVER), KoinC
             data.user.id = id.getInt("id")
         }
         val password = signManager.logPassword(hash.encryptPassword(data.user.password)) as String
-        println("password: $password")
         if (password == message.getMessage("invalid_password")) {
             data.answerStr = password
             return data

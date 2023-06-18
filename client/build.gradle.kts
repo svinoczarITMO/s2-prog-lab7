@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.10"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+    id("org.openjfx.javafxplugin") version "0.0.10"
     application
 }
 
@@ -22,6 +23,9 @@ dependencies {
     implementation("io.insert-koin:koin-core:$koinVersion")
     testImplementation("io.insert-koin:koin-test-junit5:$koinVersion")
     implementation(kotlin("stdlib-jdk8"))
+
+    implementation("no.tornado:tornadofx:1.7.20")
+    implementation("org.openjfx:javafx-controls:19.0.2.1")
 }
 
 tasks.test {
@@ -35,14 +39,17 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("MainKt")
 }
+
 repositories {
     mavenCentral()
 }
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
+
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
+}
+
+javafx {
+    version = "16"
+    modules = listOf("javafx.controls", "javafx.fxml")
 }

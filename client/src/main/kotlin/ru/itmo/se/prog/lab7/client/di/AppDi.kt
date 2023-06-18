@@ -7,6 +7,7 @@ import ru.itmo.se.prog.lab7.client.utils.io.PrinterManager
 import ru.itmo.se.prog.lab7.client.utils.io.ReaderManager
 import ru.itmo.se.prog.lab7.client.utils.managers.CollectionManager
 import ru.itmo.se.prog.lab7.client.utils.managers.CommandManager
+import ru.itmo.se.prog.lab7.client.view.MainView
 import ru.itmo.se.prog.lab7.common.data.Messages
 
 /**
@@ -42,5 +43,9 @@ val notKoinModule = module {
 
     single {
         ClientApp()
+    }
+
+    single {
+        MainView()
     }
 }

@@ -12,7 +12,7 @@ import ru.itmo.se.prog.lab7.server.utils.managers.DataBaseManager
 import java.io.File
 
 class UpgradeToAdmin: Command(ArgType.ONE_ARG, StatusType.USER, LocationType.SERVER), KoinComponent {
-    private val secretKey = File("D:\\ITMO\\2nd-semester\\prog-labs\\s2-prog-lab7\\common\\src\\main\\kotlin\\ru\\itmo\\se\\prog\\lab7\\common\\data\\.admin-key").readText()
+    private val secretKey = File("D:\\ITMO\\2nd-semester\\prog-labs\\s2-prog-lab8\\common\\src\\main\\kotlin\\ru\\itmo\\se\\prog\\lab7\\common\\data\\.admin-key").readText()
     private val dbmanager: DataBaseManager by inject ()
 
     override fun getName(): String {

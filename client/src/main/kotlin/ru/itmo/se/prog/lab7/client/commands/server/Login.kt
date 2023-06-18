@@ -13,7 +13,7 @@ class Login: Command(ArgType.TOKEN, StatusType.USER, LocationType.SERVER) {
     }
 
     override fun getDescription(): String {
-        return " - входит в учетную запись."
+        return " - входит в учетную запись.\n"
     }
 
     override fun execute(data: Data): String? {

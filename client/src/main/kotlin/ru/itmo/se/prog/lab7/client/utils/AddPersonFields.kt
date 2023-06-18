@@ -64,6 +64,7 @@ class AddPersonFields: KoinComponent {
             }
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("x")
         }
         if (flag == "main") {
             return coordinateX(arg, flag)
@@ -93,6 +94,7 @@ class AddPersonFields: KoinComponent {
             }
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("y")
         }
         if (flag == "main") {
             return coordinateX(arg, flag)
@@ -122,6 +124,7 @@ class AddPersonFields: KoinComponent {
             }
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("height")
         }
         if (flag == "main") {
             return height(arg, flag)
@@ -151,6 +154,7 @@ class AddPersonFields: KoinComponent {
             }
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("weight")
         }
         if (flag == "main") {
             return weight(arg, flag)
@@ -235,6 +239,7 @@ class AddPersonFields: KoinComponent {
             return locationX.toInt()
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("X")
         }
         if (flag == "main") {
             return locationX(arg, flag)
@@ -257,6 +262,7 @@ class AddPersonFields: KoinComponent {
             return locationY.toLong()
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("Y")
         }
         if (flag == "main") {
             return locationY(arg, flag)
@@ -279,6 +285,7 @@ class AddPersonFields: KoinComponent {
             return locationZ.toInt()
         } catch (e: NumberFormatException) {
             write.linesInConsole(message.getMessage("NumberFormatException"))
+            println("Z")
         }
         if (flag == "main") {
             return locationZ(arg, flag)

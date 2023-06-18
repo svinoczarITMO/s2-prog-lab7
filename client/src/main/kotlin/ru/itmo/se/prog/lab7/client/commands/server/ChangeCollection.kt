@@ -20,7 +20,7 @@ class ChangeCollection: Command(ArgType.ONE_ARG, StatusType.USER, LocationType.S
     }
 
     override fun getDescription(): String {
-        return "${Messages.cyanText} --type_of_collection${Messages.resetColor} - изменяет тип коллекции.)\n"
+        return " --type_of_collection - изменяет тип коллекции.)\n"
     }
 
     override fun execute(data: Data): String? {

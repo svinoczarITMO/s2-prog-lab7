@@ -20,7 +20,7 @@ class UpgradeToAdmin: Command(ArgType.ONE_ARG, StatusType.USER, LocationType.SER
     }
 
     override fun getDescription(): String {
-        return " ${Messages.cyanText}--key${Messages.resetColor} - делает вашу учетную запись админской\n"
+        return " --key - делает вашу учетную запись админской\n"
     }
 
     override fun execute(data: Data): String? {

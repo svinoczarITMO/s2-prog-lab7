@@ -33,7 +33,8 @@ class ClientApp (): KoinComponent {
         }
     }
 
-    fun request(obj: String) {
+    fun request(obj: String): String {
+        var result = ""
         try {
             val clientSocketChannel = connection()
             if (clientSocketChannel.isConnected) {
@@ -41,14 +42,16 @@ class ClientApp (): KoinComponent {
                 output.write(obj)
                 output.flush()
                 clientSocketChannel.shutdownOutput()
-                response(clientSocketChannel)
+                result = response(clientSocketChannel)!!
+                return result
             }
         } catch (e: Exception) {
             println("Ошибка запроса.")
         }
+        return result
     }
 
-    private fun response(clientSocketChannel: SocketChannel) {
+    private fun response(clientSocketChannel: SocketChannel): String? {
         try {
             val input: InputStream = clientSocketChannel.socket().getInputStream()
             val bufferedReader = BufferedReader(InputStreamReader(input))
@@ -64,9 +67,11 @@ class ClientApp (): KoinComponent {
                 write.linesInConsole(result)
             }
             clientSocketChannel.socket().close()
+            return result
         } catch (e: Exception) {
-            println("Ошибка при получении ответа от сервера.")
+            write.linesInConsole("Ошибка при получении ответа от сервера.")
         }
+        return "Ошибка при получении ответа от сервера."
     }
 
 }

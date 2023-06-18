@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
     di.dbmanager.uploadAllUsers()
     di.dbmanager.uploadAllPersons()
 
-    val historyFile = File("D:\\ITMO\\2nd-semester\\prog-labs\\s2-prog-lab7\\server\\src\\main\\kotlin\\ru\\itmo\\se\\prog\\lab7\\server\\data\\history.log")
+    val historyFile = File("D:\\ITMO\\2nd-semester\\prog-labs\\s2-prog-lab8\\server\\src\\main\\kotlin\\ru\\itmo\\se\\prog\\lab7\\server\\data\\history.log")
     historyFile.writeText("")
     val loader = Loader()
     val server = ServerApp()

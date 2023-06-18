@@ -20,7 +20,7 @@ class RemoveByID: Command(ArgType.ONE_ARG, StatusType.USER, LocationType.SERVER)
     }
 
     override fun getDescription(): String {
-        return " ${Messages.cyanText}--id${Messages.resetColor} - удаляет элемент из коллекции по его id\n"
+        return " --id - удаляет элемент из коллекции по его id\n"
     }
 
     override fun execute(data: Data): String? {

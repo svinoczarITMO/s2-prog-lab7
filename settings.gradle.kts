@@ -1,5 +1,5 @@
 
-rootProject.name = "s2-prog-lab7"
+rootProject.name = "s2-prog-lab8"
 
 
 include(":client")
