@@ -24,7 +24,7 @@ class ExecuteScript: Command(ArgType.ONE_ARG, StatusType.USER, LocationType.SERV
     }
 
     override fun getDescription(): String {
-        return " ${Messages.cyanText}--file_name${Messages.resetColor} - считывает и исполняет скрипт из указанного файла\n"
+        return " --file_name - считывает и исполняет скрипт из указанного файла\n"
     }
 
     override fun execute(data: Data): String? {

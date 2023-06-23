@@ -3,11 +3,16 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.10"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+    id("com.github.johnrengelman.shadow") version "7.1.0"
     application
 }
 
 group = "ru.itmo.se.prog.lab7"
 version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     val kotlinVersion = "1.8.10"
@@ -30,17 +35,13 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-application {
-    mainClass.set("MainKt")
+tasks.jar {
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
-repositories {
-    mavenCentral()
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka")
 }

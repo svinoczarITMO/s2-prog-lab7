@@ -3,16 +3,22 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.10"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+    id("com.github.johnrengelman.shadow") version "7.1.0"
     application
 }
 
 group = "ru.itmo.se.prog.lab7"
 version = "1.0-SNAPSHOT"
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     val kotlinVersion = "1.8.10"
     val koinVersion = "3.2.2"
     implementation(project(":common"))
+
     testImplementation(kotlin("test"))
     implementation("org.postgresql:postgresql:42.5.4")
     implementation(kotlin("serialization", version = kotlinVersion))
@@ -35,14 +41,17 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("MainKt")
 }
-repositories {
-    mavenCentral()
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka")
 }

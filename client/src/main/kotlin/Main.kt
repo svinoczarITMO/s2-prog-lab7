@@ -1,10 +1,9 @@
-package ru.itmo.se.prog.lab7.client
-
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.GlobalContext.startKoin
+import ru.itmo.se.prog.lab7.client.ClientApp
 import ru.itmo.se.prog.lab7.client.di.notKoinModule
 import ru.itmo.se.prog.lab7.client.utils.*
 import ru.itmo.se.prog.lab7.client.utils.io.PrinterManager

@@ -21,7 +21,7 @@ class CountByHairColor: Command(ArgType.ONE_ARG, StatusType.USER, LocationType.S
     }
 
     override fun getDescription(): String {
-        return "${Messages.cyanText} --hairColor ${Messages.resetColor}- выводит количество элементов, значение поля hairColor которых равно заданному\n"
+        return " --hairColor - выводит количество элементов, значение поля hairColor которых равно заданному\n"
     }
 
     override fun execute(data: Data): String? {

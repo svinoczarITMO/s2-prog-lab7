@@ -31,7 +31,7 @@ class Help: Command(ArgType.NO_ARG, StatusType.USER, LocationType.CLIENT) {
         for (klass in classes) {
             try {
                 val command = klass.getConstructor().newInstance() as Command
-                result += ("${Messages.cyanText}${command.getName()}${Messages.resetColor}" + command.getDescription())
+                result += (command.getName() + command.getDescription())
             } catch (e: Exception) {
                 result = e.message
             }

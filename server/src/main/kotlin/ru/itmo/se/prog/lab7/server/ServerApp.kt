@@ -62,7 +62,7 @@ class ServerApp: KoinComponent {
         }
     }
 
-    fun request (clientSocketChannel: SocketChannel) {
+    private fun request (clientSocketChannel: SocketChannel) {
         logger.info("Ожидание запроса...")
         try {
             val inputJson: InputStream = clientSocketChannel.socket().getInputStream()
@@ -75,7 +75,7 @@ class ServerApp: KoinComponent {
         }
     }
 
-    fun response (clientSocketChannel: SocketChannel) {
+    private fun response (clientSocketChannel: SocketChannel) {
         logger.info("Отправка ответа...")
         try {
             val outputData = Json.encodeToString(blockingResponseQueue.take())
